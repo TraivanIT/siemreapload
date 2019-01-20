@@ -1,0 +1,30 @@
+<h1>List Posts</h1>
+<p><%= link_to 'new post' , new_admin_post_path%></p>
+<div>
+	<%= render 'search' , route: admin_posts_path %>
+</div>
+<table class="table table-bordered table-hover">
+	<th>
+		<tr>
+			<th>id</th>
+			<th>title</th>
+			<th>publish</th>
+			<th>actions</th>
+		</tr>
+	</th>
+	<tbody>
+		<%@posts.each do |post|%>
+		<tr>
+			<td><%= post.id%></td>
+			<td><%= truncate(post.title, length: 100, separator: '')%> </td>
+			<td><%= status_convert(post.publish, truthy: 'Active', falsey: 'Peding')%></td>
+			<td>
+				<%= link_to 'show' , admin_post_path(post)%>
+				<%= link_to 'edit' , edit_admin_post_path(post)%>
+				<%= link_to 'delete' , admin_post_path(post), method: :delete, data: {confirm: 'are you sure ?'}%>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<%= paginate @posts %>

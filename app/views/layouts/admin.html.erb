@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Siemreapload</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'shared/alerts'%>
+    <p>
+      <%= link_to 'logout',  logout_path%>
+      <%= link_to 'login' , login_path%>
+      <%= link_to 'admin' , admin_traivans_path%>
+      <%= link_to 'posts' , admin_posts_path%>
+      <%= link_to 'tag' , new_admin_tag_path%>
+      <%= link_to 'commets' , admin_comments_path%>
+      <%= link_to 'visitor' , admin_visitors_path%>
+    </p>
+    <hr>
+    
+    <%= yield %>
+   
+  </body>
+</html>

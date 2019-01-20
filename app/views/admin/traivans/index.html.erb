@@ -1,0 +1,25 @@
+<h1>Adminstrator</h1>
+<table>
+	<thead>
+		<tr>
+			<th>id</th>
+			<th>fullname</th>
+			<th>username</th>
+			<th>created</th>
+			<th>action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%@traivan.each do |traivan|%>
+		<tr>
+			<td><%= traivan.id%></td>
+			<td><%= traivan.fullname%></td>
+			<td><%= traivan.username%></td>
+			<td><%= time_ago traivan.created_at%></td>
+			<td>
+				<%= link_to 'edit', edit_admin_traivan_path(traivan)%>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

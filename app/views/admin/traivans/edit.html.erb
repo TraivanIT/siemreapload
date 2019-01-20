@@ -1,0 +1,23 @@
+<h1>Edit Adminstrator</h1>
+<%= form_for [:admin , @traivan] do |f|%>
+	
+	<%= render 'validation_errors', object: @traivan%>
+
+	<div>
+		<%= f.label :fullname%><br>
+		<%= f.text_field :fullname%>
+	</div>
+
+	<div>
+		<%= f.label :username%><br>
+		<%= f.email_field :username%>
+	</div>
+
+	<div>
+		<%= f.label :password%><br>
+		<%= f.password_field :password%>
+	</div>
+	<div>
+		<%= f.button :submit %>
+	</div>
+<% end %>

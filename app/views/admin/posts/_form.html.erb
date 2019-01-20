@@ -1,0 +1,23 @@
+<%= form_for [:admin, @post] do |f|%>
+	<%= render 'validation_errors' , object: @post%>
+	<div>
+		<%= f.label :title%><br>
+		<%= f.text_field :title%>
+	</div>
+	<div>
+		<%= f.label :content%><br>
+		
+		<%= f.cktext_area :content%>
+	</div>
+	<div>
+		<%= f.label :publish%><br>
+		<%= f.check_box :publish%>
+	</div>
+	<div>
+		<%= f.select :tag_ids, Tag.all.collect {|t| [t.name, t.id]} , {prompt: "Please select tag"}, multiple: :true %>
+	</div>
+
+	<div>
+		<%= f.button :submit%>
+	</div>
+<% end %>

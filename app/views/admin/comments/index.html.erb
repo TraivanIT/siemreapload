@@ -1,0 +1,27 @@
+<h1>Admin::Comments#index</h1>
+<div>
+	<%= render 'search' , route: admin_comments_path %>
+</div>
+
+<p>
+	<%= link_to 'approve' , admin_comments_path(status: true)%>
+	<%= link_to 'Un-approve' , admin_comments_path(status: false)%>
+</p>
+
+<% @comments.each do |comment|%>
+	<p> <b><%= comment.visitor.fullname %></b> posted message on <b><%= comment.post.title%></b></p>
+	<p><%= comment.message%></p>
+	<p>
+		<%= link_to 'delete', admin_comment_path(comment), method: :delete, data: {confirm: 'Are you sure ?'}%>
+		<%= link_to 
+			if params[:status] == 'true'
+				link_to 'Un-approve', admin_comment_path(comment, status: false), method: :put
+			else
+				link_to 'approve', admin_comment_path(comment, status: true), method: :put
+			end 
+		%>
+	</p>
+	<hr>
+<% end %>
+
+<%= paginate @comments%>
