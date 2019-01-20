@@ -1,0 +1,20 @@
+<h1>Notification</h1>
+<%= 
+	if Notification.any? 
+		link_to 'dismiss', dismiss_all_notifications_path, method: :delete, data: {confirm: 'are you sure ?'}
+	end
+%>
+<%@visitor_notifications.each do |notif|%>
+	<p>
+		<%="#{notif.notifiable.fullname} added as new visitor #{time_ago notif.created_at}"%>
+		<%= link_to 'dismiss', admin_notification_path(notif), method: :delete, data: {confirm: 'are you sure?'}%>
+	</p>
+<% end %>
+<hr>
+
+<%@comment_notifications.each do |notif|%>
+	<p>
+		<%="#{notif.notifiable.visitor.fullname} was added a comment at #{time_ago notif.created_at}"%>
+		<%= link_to 'dismiss', admin_notification_path(notif), method: :delete, data: {confirm: 'are you sure?'}%>
+	</p>
+<% end %>

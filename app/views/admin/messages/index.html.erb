@@ -1,2 +1,48 @@
-<h1>Admin::Messages#index</h1>
-<p>Find me in app/views/admin/messages/index.html.erb</p>
+<h1>Message</h1>
+<div>
+	<%= render 'search' , route: admin_messages_path %>
+</div>
+
+<table>
+	<thead>
+		<tr>
+			<th>id</th>
+			<th>visitor</th>
+			<th>content</th>
+			<th>status</th>
+			<th>created</th>
+			<th>action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @messages.each do |message|%>
+		<% 
+			if message.status == false
+				message_color = 'read-color'
+			else
+				message_color = 'unread-color'
+			end
+		%>
+			<tr>
+				<td class="<%= message_color %>"><%= message.id%></td>
+				<td class="<%= message_color %>"><%= message.visitor.fullname%></td>
+				<td class="<%= message_color %>"><%= truncate(message.content, length: 60, seperator: '')%></td>
+				<td class="<%= message_color %>"><%= status_convert(message.status, truthy: 'read', falsey: 'not read')%></td>
+				<td class="<%= message_color %>"><%= time_ago message.created_at%></td>
+				<td class="<%= message_color %>">
+					<%= link_to 'show', admin_message_path(message)%>
+					<%= link_to 'delete' , admin_message_path(message), method: :delete , data: {confirm: 'are you sure?'}%>
+
+					<%= 
+						if message.status == true 
+							link_to 'read', admin_message_path(message, status: false), method: :put
+						else
+							link_to 'Un-read', admin_message_path(message, status: true), method: :put
+						end
+					%>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+<%= paginate @messages%>

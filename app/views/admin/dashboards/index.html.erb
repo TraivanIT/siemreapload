@@ -1,0 +1,63 @@
+<h1>Dashboard</h1>
+<%= link_to 'new post' , new_admin_post_path%>
+<%= link_to 'views all ' , admin_posts_path%>
+<table>
+	<thead>
+		<tr>
+			<th>id</th>
+			<th>title</th>
+			<th>replied</th>
+			<th>created</th>
+			<th>action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%@posts.each do |post|%>
+		<tr>
+			<td><%= post.id%></td>
+			<td><%= truncate(post.title, length: 40, seperator: '')%></td>
+			<td><%= post.comments.count%></td>
+			
+			<td><%= time_ago post.created_at%></td>
+			<td>
+				<%= link_to 'edit', edit_admin_post_path(post)%>
+				<%= link_to 'view', admin_post_path(post)%>
+				<%= link_to 'del', admin_post_path(post), method: :delete, data: {confirm: 'are you sure?'}%>
+					
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<hr>
+<h2>Comments</h2>
+<%@comments.each do |comment|%>
+	<p><%= comment.visitor.fullname%></p>
+	<p><%= truncate(comment.message, length: 125, seperator: '')%></p>
+	<p><%= time_ago comment.created_at%></p>
+<% end %>
+
+<hr>
+<table>
+	<tbody>
+		<tr>
+			<th>#</th>
+			<th>Full name</th>
+			<th>Email</th>
+			<th>Created</th>
+			<th>Action</th>
+		</tr>
+	</tbody>
+	<tbody>
+		<%@visitors.each_with_index do |visitor, index|%>
+		<tr>
+			<td><%= index + 1%></td>
+			<td><%= visitor.fullname%></td>
+			<td><%= visitor.email%></td>
+			<td><%= time_ago visitor.created_at%></td>
+			<td><%= link_to 'delete', admin_visitor_path(visitor), method: :delete, data: {confirm: 'are you sure ?'}%></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+
