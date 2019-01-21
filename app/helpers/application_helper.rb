@@ -12,4 +12,8 @@ module ApplicationHelper
 		end
 				
 	end
+
+	def admin_active? path
+    "admin-active" if current_page? path
+  end
 end

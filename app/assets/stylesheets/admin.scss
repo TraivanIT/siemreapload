@@ -1,3 +1,115 @@
+@import "bootstrap";
+/* ################# admin ############## */
+html, body{
+	background-color: #f9fafb;
+}
+.max-viewport {
+  min-height: 100vh;
+}
+
+/* top-nav*/
+#top-nav{
+	height: 60px;
+	background-color: white;
+	border-bottom: 1px solid #efefef;
+}
+#top-nav .border-right{
+	border-right: 1px solid #efefef;
+	height: 60px;
+	display: flex;
+}
+.admi-logo{
+	margin: auto;
+	color: #505455;
+}
+#top-nav .top-nav-link{
+	height: 60px;
+}
+.top-link-inner{
+}
+.top-nav-link i{
+	color: #505455;
+	font-size: 1.2rem;
+}
+.top-nav-link .nav-link{
+	color: #505455;
+}
+#top-nav .label{
+	background-color: #ff0074;
+}
+.icon {
+	position: relative;
+}
+#top-nav ul .label{
+	position: absolute;
+	margin-top: -30px;
+	right: -3px;
+	border-radius: 100%;
+	font-size: 8px;
+	color: white;
+	padding-top:  2px;
+	padding-bottom:   2px;
+	padding-right:   4px;
+	padding-left:    4px;
+}
+
+/* sidebar */
+#sidebar{
+	background-color: white;
+	border-right: 1px solid #efefef;
+	margin: 0px;
+	padding: 0px;
+}
+.fa-home{
+	color: #5fb9fa;
+}
+.fa-user{
+	color: #ff0803;
+}
+.fa-newspaper{
+	color: #865c4f;	
+}
+.fa-comment-alt{
+	color: #ff9b13;
+}
+.fa-comment{
+		color: #8015bd;
+}
+.fa-tag{
+	color: #5fb9fa; 
+}
+.fa-cog{
+	color: #039c8c;
+}
+.fa-sign-out-alt{
+	color: #ff6499;
+}
+.fa-bell{
+	color: #524cbb;
+}
+.box{
+	border: 1px red dotted;
+}
+#sidebar ul li a{
+	padding-left: 15px;
+}
+	
+.admin-active{
+	background-color: #e2ecef;
+	color: #111 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .read-color{
 	color: #50f442;
 }

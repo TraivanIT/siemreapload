@@ -30,6 +30,7 @@ gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'ckeditor', '~> 4.3'
 gem 'carrierwave', '~> 1.3', '>= 1.3.1'
 gem 'mini_magick', '~> 4.9', '>= 4.9.2'
+gem 'bootstrap', '~> 4.2', '>= 4.2.1'
 
 
 # Use ActiveStorage variant

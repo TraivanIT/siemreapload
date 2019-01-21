@@ -1,0 +1,56 @@
+<nav class="col-md-3 col-lg-2 d-none d-md-block sidebar right-padding max-viewport" id="sidebar">
+  <ul class="navbar-nav d-flex-column">
+    <li class="nav-item mt-3 <%= admin_active? admin_dashboards_path%> ">
+      <%= link_to admin_dashboards_path , class: "nav-link text-secondary" do %>
+        <i class="fa fa-home  mr-2"></i> Dashboards
+      <% end %>
+    </li>
+
+    <li class="nav-item py-1 <%= admin_active? admin_posts_path%> ">
+      <%= link_to admin_posts_path , class: "nav-link text-secondary" do %>
+        <i class="fas fa-newspaper mr-2"></i> Article
+      <% end %>
+    </li>
+
+    <li class="nav-item py-1 <%= admin_active? admin_messages_path%>">
+      <%= link_to admin_messages_path , class: "nav-link text-secondary" do %>
+        <i class="fas fa-comment-alt mr-2"></i> Messages
+      <% end %>
+    </li>
+    <li class="nav-item py-1 <%= admin_active? admin_comments_path%> ">
+      <%= link_to admin_comments_path , class: "nav-link text-secondary" do %>
+        <i class="fas fa-comment-dots mr-2"></i> Comments
+      <% end %>
+    </li>
+    <li class="nav-item py-1 <%= admin_active? new_admin_tag_path%> ">
+      <%= link_to new_admin_tag_path , class: "nav-link text-secondary" do %>
+        <i class="fas fa-tag mr-2"></i> Tags
+      <% end %>
+    </li>
+    <li class="nav-item py-1 <%= admin_active? admin_notifications_path%> ">
+      <%= link_to admin_notifications_path , class: "nav-link text-secondary" do %>
+        <i class="fas fa-bell mr-2"></i> Notifications
+      <% end %>
+    </li>
+
+    <li class="nav-item py-1 <%= admin_active? admin_traivans_path%> ">
+      <%= link_to admin_traivans_path , class: "nav-link text-secondary" do %>
+        <i class="fas fa-user mr-2"></i> Administrator
+      <% end %>
+    </li>
+
+    <li class="nav-item py-1">
+      <%= link_to logout_path , class: "nav-link text-secondary" do %>
+        <i class="fas fa-sign-out-alt mr-2"></i> Sing out
+      <% end %>
+    </li>
+
+    <li class="nav-item py-1 <%= admin_active? new_admin_setting_path%> ">
+      <%= link_to new_admin_setting_path , class: "nav-link text-secondary" do %>
+        <i class="fas fa-cog mr-2"></i> Settings
+      <% end %>
+    </li>
+  </ul>
+</nav>
+
+
